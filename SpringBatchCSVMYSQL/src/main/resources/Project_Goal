@@ -1,0 +1,16 @@
+Goal:
+To build a simple application that expresses how we can use Spring Batch with Job Step (including ItemReader, ItemProcessor, ItemWriter and JobExecutionListener) to read Customer Data from CSV file, then put them to PostgreSQL Table named ‘customer’.
+
+
+please refer image in below location for application flow diagram...
+
+scm/main/resources/batchcsvsql-architect.jpg
+
+
+
+– Reader: reads content of CSV file, then maps the read data to fields of DataModel Customer.
+– Processor: converts each Customer record’s content to new content (for example, get Random ID and uppercase Name String) which will be written to Database Table.
+– Writer: writes batch of records to PostgreSQL Database using DAO.
+– Listener: handles after Step, read data from Database Table to verify and show LOGs.
+– RestController: runs Job using JobLauncher, then return Complete String to Client.
+– DAO: interacts with Database.
